@@ -50,12 +50,15 @@ export class Recipe {
     assert.isObject(step, 'Шаг должен быть объектом с параметрами');
     assert.isString(step.description, 'Ошисание шага рецепта не должно быть пустым');
 
-    this.#steps.push()
+    this.#steps.push(step);
 
     return this;
   }
 
   get() {
+    assert.isFalse(this.#ingredients.length === 0, 'В рецепте должен быть как минимум один ингредиент для приготовления');
+    assert.isFalse(this.#steps.length === 0, 'В рецепте должен быть как минимум один шаг приготовления');
+
     return {
       name: this.#name,
       description: this.#description,
