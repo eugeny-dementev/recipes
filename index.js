@@ -1,4 +1,5 @@
-import { renderIngredientTags, renderModeSelector } from "./ui.js";
+import { renderIngredientTags, renderModeSelector, renderRecipes } from "./ui.js";
 
 renderModeSelector();
 renderIngredientTags();
+renderRecipes();
