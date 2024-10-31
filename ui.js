@@ -7,15 +7,15 @@ export function renderIngredientTags() {
   const tagsContainer = document.getElementById('tags');
   for (const ingredient of Object.values(Ingredients)) {
     const button = document.createElement('button')
-    button.classList.add('ingredient_button');
+    button.classList.add('tags__el');
     button.innerHTML = ingredient;
     button.addEventListener('click', () => {
-      if (button.classList.contains('selected')) {
+      if (button.classList.contains('tags__el--selected')) {
         state.selectedIngredients.delete(ingredient);
-        button.classList.remove('selected');
+        button.classList.remove('tags__el--selected');
       } else {
         state.selectedIngredients.add(ingredient);
-        button.classList.add('selected');
+        button.classList.add('tags__el--selected');
       }
 
       console.log('Выбранные ингредиенты:', state.selectedIngredients);
@@ -33,10 +33,10 @@ export function renderModeSelector() {
   const anyButton = document.createElement('button');
   const allButton = document.createElement('button');
 
-  anyButton.classList.add('mode_button');
-  anyButton.classList.add('selected');
+  anyButton.classList.add('mode__button');
+  anyButton.classList.add('mode__button--selected');
 
-  allButton.classList.add('mode_button');
+  allButton.classList.add('mode__button');
 
   anyButton.innerHTML = 'Любой из выбранных';
   allButton.innerHTML = 'Каждый из выбранных';
@@ -49,10 +49,10 @@ export function renderModeSelector() {
 
     state.searchMode = button.id;
 
-    anyButton.classList.remove('selected');
-    allButton.classList.remove('selected');
+    anyButton.classList.remove('mode__button--selected');
+    allButton.classList.remove('mode__button--selected');
 
-    button.classList.add('selected');
+    button.classList.add('mode__button--selected');
 
     renderRecipes();
   }
@@ -82,16 +82,16 @@ export function renderRecipes() {
     }
 
     const recipeContainer = document.createElement('div');
-    recipeContainer.classList.add('recipe_container');
+    recipeContainer.classList.add('recipes__item', 'recipe');
 
-    const titleEl = document.createElement('div');
-    titleEl.classList.add('recipe_title');
+    const titleEl = document.createElement('h2');
+    titleEl.classList.add('recipe__title');
     titleEl.innerHTML = recipe.name;
     recipeContainer.appendChild(titleEl);
 
-    const descriptionEl = document.createElement('div');
-    descriptionEl.classList.add('recipe_description');
-    descriptionEl.innerHTML = recipe.name;
+    const descriptionEl = document.createElement('p');
+    descriptionEl.classList.add('recipe__description');
+    descriptionEl.innerHTML = recipe.description;
     recipeContainer.appendChild(descriptionEl);
 
     recipesContainer.appendChild(recipeContainer);

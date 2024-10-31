@@ -1,22 +1,33 @@
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script type="text/javascript" src="https://livejs.com/live.js"></script> -->
   <link href="style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <title>Recipes</title>
 </head>
 
-<body>
-  <div id="mode">
-    <span>Режим поиска: </span>
-  </div>
-  <div id="tags">
-    <span>Выбранные ингредиенты: </span>
-  </div>
+<body class="cookbook">
+  <h1 class="cookbook__title">Рецепты</h1>
+  
+  <section class="cookbook__section">
+    <p class="cookbook__section-title">Режим поиска: </p>
+    <div id="mode" class="mode"></div>
+  </section>
 
-  <div id="recipes">
-  </div>
+  <section class="cookbook__section">
+    <p class="cookbook__section-title">Выбранные ингредиенты: </p>
+    <div id="tags" class="tags"></div>
+  </section>
+
+  <section class="cookbook__section">
+    <p class="cookbook__section-title">Найденные рецепты: </p>
+    <div id="recipes" class="recipes"></div>
+  </section>
 
   <script type="module" src="ingredients.js"></script>
   <script type="module" src="recipes.js"></script>
