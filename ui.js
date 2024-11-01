@@ -147,9 +147,36 @@ function showRecipe(mode, ingredients) {
   return false;
 }
 
-export function renderRecipe() {
+export function renderRecipe(recipe) {
   const recipeSection = document.getElementById('recipe_section');
   recipeSection.classList.remove('display_none');
 
+  const recipeContainer = document.createElement('div');
+  recipeContainer.classList.add('recipe_container');
+  recipeSection.appendChild(recipeContainer);
 
+  const recipeIngredients = document.createElement('div');
+  recipeIngredients.classList.add('recipe__ingredients');
+  for (const ingredient of recipe.ingredients) {
+    const recipeIngredient = document.createElement('span');
+    recipeIngredient.classList.add('recipe__step');
+    recipeIngredient.innerHTML = ingredient;
+    recipeIngredients.appendChild(recipeIngredient);
+  }
+  recipeContainer.appendChild(recipeIngredients);
+
+  const recipeDescription = document.createElement('div');
+  recipeDescription.classList.add('recipe__description');
+  recipeDescription.innerHTML = recipe.description;
+  recipeContainer.appendChild(recipeDescription);
+
+  const recipeSteps = document.createElement('div');
+  recipeSteps.classList.add('recipes__steps');
+  for (const step of recipe.steps) {
+    const recipeStep = document.createElement('div');
+    recipeStep.classList.add('recipe__step');
+    recipeStep.innerHTML = step.description;
+    recipeSteps.appendChild(recipeStep);
+  }
+  recipeContainer.appendChild(recipeSteps);
 }
