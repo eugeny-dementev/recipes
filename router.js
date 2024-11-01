@@ -1,7 +1,7 @@
 import { assert } from './assert.js';
 import { idsSet } from './ids.js';
 
-const PAGES = {
+export const PAGES = {
   RECIPE: 'recipe',
   MAIN: 'index',
 }
