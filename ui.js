@@ -100,6 +100,9 @@ export function renderRecipes() {
 
     const recipeContainer = document.createElement('div');
     recipeContainer.classList.add('recipes__item', 'recipe');
+    recipeContainer.addEventListener('click', () => {
+      location.assign(`${location.href}?recipe=${recipe.id}`);
+    });
 
     const titleEl = document.createElement('h2');
     titleEl.classList.add('recipe__title');
