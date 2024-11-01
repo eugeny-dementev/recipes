@@ -4,7 +4,11 @@ import { recipes } from "./recipes.js";
 import { state } from "./state.js";
 
 export function renderIngredientTags() {
+  const tagsSection = document.getElementById('tags_section');
+  tagsSection.classList.remove('display_none');
+
   const tagsContainer = document.getElementById('tags');
+
   for (const ingredient of Object.values(Ingredients)) {
     const button = document.createElement('button')
     button.classList.add('tags__el');
@@ -28,6 +32,9 @@ export function renderIngredientTags() {
 }
 
 export function renderModeSelector() {
+  const modeSection = document.getElementById('mode_section');
+  modeSection.classList.remove('display_none');
+
   const modeContainer = document.getElementById('mode');
 
   const anyButton = document.createElement('button');
@@ -65,6 +72,9 @@ export function renderModeSelector() {
 }
 
 export function renderRecipes() {
+  const recipesSection = document.getElementById('recipes_section');
+  recipesSection.classList.remove('display_none');
+
   const recipesContainer = document.getElementById('recipes');
   recipesContainer.innerHTML = '';
 
@@ -128,4 +138,11 @@ function showRecipe(mode, ingredients) {
   }
 
   return false;
+}
+
+export function renderRecipe() {
+  const recipeSection = document.getElementById('recipe_section');
+  recipeSection.classList.remove('display_none');
+
+
 }
