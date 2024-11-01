@@ -1,4 +1,4 @@
-import { ids } from "./ids.js";
+import { ids, idsSet } from "./ids.js";
 import { Ingredients } from "./ingredients.js";
 import { Recipe } from "./recipe.js";
 
@@ -62,4 +62,16 @@ for (let i = 0; i < recipes.length; i++) {
   }
 
   setToCheck.add(recipe.id);
+}
+
+export function getRecipe(id) {
+  assert.isIn(id, idsSet, 'Предоставленный id рецепта не найдет в списке доступных id');
+
+  for (let recipe of recipes) {
+    if (recipe.id === id) {
+      return recipe;
+    }
+  }
+
+  throw new Error('По заданному id не найдено ни одного рецепта');
 }
