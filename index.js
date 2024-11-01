@@ -1,5 +1,5 @@
 import { getRoute, PAGES } from "./router.js";
-import { renderIngredientTags, renderModeSelector, renderRecipe, renderRecipes } from "./ui.js";
+import { renderIngredientTags, renderModeSelector, renderRecipe, renderRecipes, setPageTitle } from "./ui.js";
 
 const pageContext = getRoute();
 
@@ -19,6 +19,7 @@ switch (pageContext.page) {
 }
 
 function renderMainPage() {
+  setPageTitle('Рецепты');
   renderModeSelector();
   renderIngredientTags();
   renderRecipes();
