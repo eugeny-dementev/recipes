@@ -1,3 +1,4 @@
+import { getRecipe } from "./recipes.js";
 import { getRoute, PAGES } from "./router.js";
 import { renderIngredientTags, renderModeSelector, renderRecipe, renderRecipes, setPageTitle } from "./ui.js";
 
@@ -26,5 +27,7 @@ function renderMainPage() {
 }
 
 function renderRecipePage() {
-  renderRecipe();
+  const recipe = getRecipe(pageContext.id);
+  setPageTitle(`Рецепт: ${recipe.name}`);
+  renderRecipe(recipe);
 }
