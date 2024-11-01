@@ -2,6 +2,9 @@ import { assert } from "./assert.js";
 
 /**
  * Рандомно сгенерированные id для рецептов для роутинга
+ *
+ * @WARNING: Ни в коем случае не менять существующие значения
+ * Если нужно, просто добавить сверху новые значения
  */
 export const ids = {
   id1: "HweGVvNg6TM5CjCY",
@@ -108,6 +111,6 @@ export const ids = {
 
 const values = Object.values(ids);
 
-export const setToCheck = new Set(values);
+export const idsSet = new Set(values);
 
-assert.is(setToCheck.size === values.length, 'ids должен содержать уникальные не повторяемые значения');
+assert.is(idsSet.size === values.length, true, 'ids должен содержать уникальные не повторяемые значения');
