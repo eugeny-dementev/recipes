@@ -204,3 +204,7 @@ h3 {
 .tags__el--selected::after {
   opacity: 1;
 }
+
+.display_none {
+  display: none;
+}

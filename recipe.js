@@ -1,7 +1,9 @@
-import { Ingredients } from "./ingredients.js";
 import { assert } from "./assert.js";
+import { idsSet } from "./ids.js";
+import { Ingredients } from "./ingredients.js";
 
 export class Recipe {
+  #id
   #name
   #description
   #ingredients
@@ -16,6 +18,13 @@ export class Recipe {
     this.#name = name;
     this.#steps = [];
     this.#ingredients = [];
+  }
+
+  setId(id) {
+    assert.isIn(id, idsSet, 'Предоставленный id рецепта не найдет в списке доступных id');
+    this.#id = id;
+
+    return this;
   }
 
   /**
@@ -56,10 +65,12 @@ export class Recipe {
   }
 
   get() {
+    assert.isFalse(this.#id === undefined, 'Рецепту обязательно нужно назначить id из объекта ids');
     assert.isFalse(this.#ingredients.length === 0, 'В рецепте должен быть как минимум один ингредиент для приготовления');
     assert.isFalse(this.#steps.length === 0, 'В рецепте должен быть как минимум один шаг приготовления');
 
     return {
+      id: this.#id,
       name: this.#name,
       description: this.#description,
       ingredients: this.#ingredients,

@@ -47,6 +47,14 @@ export const assert = {
     throw new TypeError(message || `value should be on of ${values.join(',')} but it is: ${value}`);
   },
 
+  isIn(value, dict, message) {
+    if (dict.has(value)) {
+      return;
+    }
+
+    throw new TypeError(message || 'value should exist in provided dictionary');
+  },
+
   isInstanceOf(value, klass, message) {
     if (value instanceof klass) {
       return;

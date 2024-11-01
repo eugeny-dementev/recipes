@@ -3,8 +3,19 @@ import { Ingredients } from "./ingredients.js";
 import { recipes } from "./recipes.js";
 import { state } from "./state.js";
 
+export function setPageTitle(title) {
+  assert.isString(title, 'Заголовок должен быть строкой');
+
+  const titleTag = document.getElementById('title');
+  titleTag.innerHTML = title;
+}
+
 export function renderIngredientTags() {
+  const tagsSection = document.getElementById('tags_section');
+  tagsSection.classList.remove('display_none');
+
   const tagsContainer = document.getElementById('tags');
+
   for (const ingredient of Object.values(Ingredients)) {
     const button = document.createElement('button')
     button.classList.add('tags__el');
@@ -28,6 +39,9 @@ export function renderIngredientTags() {
 }
 
 export function renderModeSelector() {
+  const modeSection = document.getElementById('mode_section');
+  modeSection.classList.remove('display_none');
+
   const modeContainer = document.getElementById('mode');
 
   const anyButton = document.createElement('button');
@@ -65,6 +79,9 @@ export function renderModeSelector() {
 }
 
 export function renderRecipes() {
+  const recipesSection = document.getElementById('recipes_section');
+  recipesSection.classList.remove('display_none');
+
   const recipesContainer = document.getElementById('recipes');
   recipesContainer.innerHTML = '';
 
@@ -83,6 +100,9 @@ export function renderRecipes() {
 
     const recipeContainer = document.createElement('div');
     recipeContainer.classList.add('recipes__item', 'recipe');
+    recipeContainer.addEventListener('click', () => {
+      location.assign(`${location.href}?recipe=${recipe.id}`);
+    });
 
     const titleEl = document.createElement('h2');
     titleEl.classList.add('recipe__title');
@@ -128,4 +148,38 @@ function showRecipe(mode, ingredients) {
   }
 
   return false;
+}
+
+export function renderRecipe(recipe) {
+  const recipeSection = document.getElementById('recipe_section');
+  recipeSection.classList.remove('display_none');
+
+  const recipeContainer = document.createElement('div');
+  recipeContainer.classList.add('recipe_container');
+  recipeSection.appendChild(recipeContainer);
+
+  const recipeIngredients = document.createElement('div');
+  recipeIngredients.classList.add('recipe__ingredients');
+  for (const ingredient of recipe.ingredients) {
+    const recipeIngredient = document.createElement('span');
+    recipeIngredient.classList.add('recipe__step');
+    recipeIngredient.innerHTML = ingredient;
+    recipeIngredients.appendChild(recipeIngredient);
+  }
+  recipeContainer.appendChild(recipeIngredients);
+
+  const recipeDescription = document.createElement('div');
+  recipeDescription.classList.add('recipe__description');
+  recipeDescription.innerHTML = recipe.description;
+  recipeContainer.appendChild(recipeDescription);
+
+  const recipeSteps = document.createElement('div');
+  recipeSteps.classList.add('recipes__steps');
+  for (const step of recipe.steps) {
+    const recipeStep = document.createElement('div');
+    recipeStep.classList.add('recipe__step');
+    recipeStep.innerHTML = step.description;
+    recipeSteps.appendChild(recipeStep);
+  }
+  recipeContainer.appendChild(recipeSteps);
 }
