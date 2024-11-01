@@ -1,3 +1,5 @@
+import { assert } from "./assert.js";
+
 /**
  * Рандомно сгенерированные id для рецептов для роутинга
  */
@@ -103,3 +105,9 @@ export const ids = {
   id99: "52J5UwMgIcTcuGwm",
   id100: "SX91ehWvkiLZV3dm"
 };
+
+const values = Object.values(ids);
+
+export const setToCheck = new Set(values);
+
+assert.is(setToCheck.size === values.length, 'ids должен содержать уникальные не повторяемые значения');
