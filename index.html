@@ -9,25 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
-  <title>Recipes</title>
+  <title>Рецепты</title>
 </head>
 
 <body class="cookbook">
-  <h1 class="cookbook__title">Рецепты</h1>
+  <h1 id="title" class="cookbook__title">Рецепты</h1>
   
-  <section class="cookbook__section">
+  <section id="mode_section" class="cookbook__section display_none">
     <p class="cookbook__section-title">Режим поиска: </p>
     <div id="mode" class="mode"></div>
   </section>
 
-  <section class="cookbook__section">
+  <section id="tags_section" class="cookbook__section display_none">
     <p class="cookbook__section-title">Выбранные ингредиенты: </p>
     <div id="tags" class="tags"></div>
   </section>
 
-  <section class="cookbook__section">
+  <section id="recipes_section" class="cookbook__section display_none">
     <p class="cookbook__section-title">Найденные рецепты: </p>
     <div id="recipes" class="recipes"></div>
+  </section>
+
+  <section id="recipe_section" class="display_none">
+    
   </section>
 
   <script type="module" src="assert.js"></script>
