@@ -3,6 +3,13 @@ import { Ingredients } from "./ingredients.js";
 import { recipes } from "./recipes.js";
 import { state } from "./state.js";
 
+export function setPageTitle(title) {
+  assert.isString(title, 'Заголовок должен быть строкой');
+
+  const titleTag = document.getElementById('title');
+  titleTag.innerHTML = title;
+}
+
 export function renderIngredientTags() {
   const tagsSection = document.getElementById('tags_section');
   tagsSection.classList.remove('display_none');
