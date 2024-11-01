@@ -1,4 +1,5 @@
 import { ids, idsSet } from "./ids.js";
+import { assert } from "./assert.js";
 import { Ingredients } from "./ingredients.js";
 import { Recipe } from "./recipe.js";
 
