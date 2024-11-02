@@ -1,11 +1,13 @@
 import { assert } from "./assert.js";
 import { idsSet } from "./ids.js";
 import { Ingredients } from "./ingredients.js";
+import { Spice } from "./spices.js";
 
 export class Recipe {
   #id
   #name
   #description
+  #spices
   #ingredients
   #steps
 
@@ -18,6 +20,7 @@ export class Recipe {
     this.#name = name;
     this.#steps = [];
     this.#ingredients = [];
+    this.#spices = [];
   }
 
   setId(id) {
@@ -34,6 +37,14 @@ export class Recipe {
     assert.oneOf(ingredient, Object.values(Ingredients), 'Ингредиент должен быть одим из значений объекта Ingredients');
 
     this.#ingredients.push(ingredient);
+
+    return this;
+  }
+
+  addSpice(spice) {
+    assert.oneOf(spice, Object.values(Spice), 'Специя должна быть одним из значений объекта Spices');
+
+    this.#spices.push(spice);
 
     return this;
   }
@@ -74,6 +85,7 @@ export class Recipe {
       name: this.#name,
       description: this.#description,
       ingredients: this.#ingredients,
+      spices: this.#spices,
       steps: this.#steps,
     };
   }
