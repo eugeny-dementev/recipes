@@ -2,6 +2,7 @@ import { ids, idsSet } from "./ids.js";
 import { assert } from "./assert.js";
 import { Ingredients } from "./ingredients.js";
 import { Recipe } from "./recipe.js";
+import { Spice } from "./spices.js";
 
 export const recipes = [
   new Recipe('Крошка-батат с шпинатом и шампиньонами')
@@ -41,6 +42,8 @@ export const recipes = [
     .addDescription('Описание рецепта 3')
     .addIngredient(Ingredients.Tomato)
     .addIngredient(Ingredients.Carrot)
+    .addSpice(Spice.Pepper)
+    .addSpice(Spice.Salt)
     .addStep({
       position: 3,
       description: 'Порезать морковку',
