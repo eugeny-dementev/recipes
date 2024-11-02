@@ -1,5 +1,5 @@
 import { assert } from "./assert.js";
-import { Ingredients } from "./ingredients.js";
+import { Ingredient } from "./ingredients.js";
 import { recipes } from "./recipes.js";
 import { state } from "./state.js";
 
@@ -16,7 +16,7 @@ export function renderIngredientTags() {
 
   const tagsContainer = document.getElementById('tags');
 
-  for (const ingredient of Object.values(Ingredients)) {
+  for (const ingredient of Object.values(Ingredient)) {
     const button = document.createElement('button')
     button.classList.add('tags__el');
     button.innerHTML = ingredient;
@@ -162,11 +162,23 @@ export function renderRecipe(recipe) {
   recipeIngredients.classList.add('recipe__ingredients');
   for (const ingredient of recipe.ingredients) {
     const recipeIngredient = document.createElement('span');
-    recipeIngredient.classList.add('recipe__step');
+    recipeIngredient.classList.add('recipe__ingredient');
     recipeIngredient.innerHTML = ingredient;
     recipeIngredients.appendChild(recipeIngredient);
   }
   recipeContainer.appendChild(recipeIngredients);
+
+  if (recipe.spices.length > 0) {
+    const recipeSpices = document.createElement('div');
+    recipeSpices.classList.add('recipe__spices');
+    for (const spice of recipe.spices) {
+      const recipeSpice = document.createElement('span');
+      recipeSpice.classList.add('recipe__spice');
+      recipeSpice.innerHTML = spice;
+      recipeSpices.appendChild(recipeSpice);
+    }
+    recipeContainer.appendChild(recipeSpices);
+  }
 
   const recipeDescription = document.createElement('div');
   recipeDescription.classList.add('recipe__description');
