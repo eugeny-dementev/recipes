@@ -162,11 +162,23 @@ export function renderRecipe(recipe) {
   recipeIngredients.classList.add('recipe__ingredients');
   for (const ingredient of recipe.ingredients) {
     const recipeIngredient = document.createElement('span');
-    recipeIngredient.classList.add('recipe__step');
+    recipeIngredient.classList.add('recipe__ingredient');
     recipeIngredient.innerHTML = ingredient;
     recipeIngredients.appendChild(recipeIngredient);
   }
   recipeContainer.appendChild(recipeIngredients);
+
+  if (recipe.spices.length > 0) {
+    const recipeSpices = document.createElement('div');
+    recipeSpices.classList.add('recipe__spices');
+    for (const spice of recipe.spices) {
+      const recipeSpice = document.createElement('span');
+      recipeSpice.classList.add('recipe__spice');
+      recipeSpice.innerHTML = spice;
+      recipeSpices.appendChild(recipeSpice);
+    }
+    recipeContainer.appendChild(recipeSpices);
+  }
 
   const recipeDescription = document.createElement('div');
   recipeDescription.classList.add('recipe__description');
