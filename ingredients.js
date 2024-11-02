@@ -1,4 +1,4 @@
-export const Ingredients = {
+export const Ingredient = {
   Potato: 'картошка',
   Carrot: 'морковь',
   Tomato: 'томат',

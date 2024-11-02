@@ -1,6 +1,6 @@
 import { assert } from "./assert.js";
 import { idsSet } from "./ids.js";
-import { Ingredients } from "./ingredients.js";
+import { Ingredient } from "./ingredients.js";
 import { Spice } from "./spices.js";
 
 export class Recipe {
@@ -34,7 +34,7 @@ export class Recipe {
    * @param {string} ingredients
    */
   addIngredient(ingredient) {
-    assert.oneOf(ingredient, Object.values(Ingredients), 'Ингредиент должен быть одим из значений объекта Ingredients');
+    assert.oneOf(ingredient, Object.values(Ingredient), 'Ингредиент должен быть одим из значений объекта Ingredients');
 
     this.#ingredients.push(ingredient);
 

@@ -1,5 +1,5 @@
 import { assert } from "./assert.js";
-import { Ingredients } from "./ingredients.js";
+import { Ingredient } from "./ingredients.js";
 import { recipes } from "./recipes.js";
 import { state } from "./state.js";
 
@@ -16,7 +16,7 @@ export function renderIngredientTags() {
 
   const tagsContainer = document.getElementById('tags');
 
-  for (const ingredient of Object.values(Ingredients)) {
+  for (const ingredient of Object.values(Ingredient)) {
     const button = document.createElement('button')
     button.classList.add('tags__el');
     button.innerHTML = ingredient;

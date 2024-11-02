@@ -1,6 +1,6 @@
 import { ids, idsSet } from "./ids.js";
 import { assert } from "./assert.js";
-import { Ingredients } from "./ingredients.js";
+import { Ingredient } from "./ingredients.js";
 import { Recipe } from "./recipe.js";
 import { Spice } from "./spices.js";
 
@@ -8,10 +8,10 @@ export const recipes = [
   new Recipe('Крошка-батат с шпинатом и шампиньонами')
     .setId(ids.id1)
     .addDescription('Половинка батата с начинкой')
-    .addIngredient(Ingredients.SweetPotato)
-    .addIngredient(Ingredients.SourCream)
-    .addIngredient(Ingredients.Spinach)
-    .addIngredient(Ingredients.Champignon)
+    .addIngredient(Ingredient.SweetPotato)
+    .addIngredient(Ingredient.SourCream)
+    .addIngredient(Ingredient.Spinach)
+    .addIngredient(Ingredient.Champignon)
     .addStep({
       position: 1,
       description: 'Батат порезать на половинки, проткнуть вилкой, смазать маслом, солью и перцем',
@@ -25,8 +25,8 @@ export const recipes = [
   new Recipe('Рецепт номер 2')
     .setId(ids.id2)
     .addDescription('Описание рецепта 2')
-    .addIngredient(Ingredients.Potato)
-    .addIngredient(Ingredients.Tomato)
+    .addIngredient(Ingredient.Potato)
+    .addIngredient(Ingredient.Tomato)
     .addStep({
       position: 1,
       description: 'Порезать картошку',
@@ -40,8 +40,8 @@ export const recipes = [
   new Recipe('Рецепт номер 3')
     .setId(ids.id3)
     .addDescription('Описание рецепта 3')
-    .addIngredient(Ingredients.Tomato)
-    .addIngredient(Ingredients.Carrot)
+    .addIngredient(Ingredient.Tomato)
+    .addIngredient(Ingredient.Carrot)
     .addSpice(Spice.Pepper)
     .addSpice(Spice.Salt)
     .addStep({
