@@ -1,3 +1,5 @@
+/* ОБЩЕЕ */
+
 body {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -10,7 +12,7 @@ body {
 ul[class],
 ol[class] {
   padding: 0;
-  list-style: none;
+  /* list-style: none; */
 }
 
 body,
@@ -53,9 +55,8 @@ h3 {
   font-size: 20px;
 }
 
-.selected {
-  background-color: green;
-}
+/* СТРАНИЦА
+ */
 
 .cookbook {
   width: 80%;
@@ -77,6 +78,7 @@ h3 {
   font-weight: 400;
 }
 
+/* РЕЖИМЫ ПОИСКА */
 .mode {
   display: flex;
   align-items: center;
@@ -116,6 +118,8 @@ h3 {
   width: 100%;
 }
 
+/* БЛОК С РЕЦЕПТАМИ */
+
 .recipes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -147,15 +151,13 @@ h3 {
   transform: translate(5px, 5px);
 }
 
+/* КАРТОЧКА РЕЦЕПТА */
+
 .recipe__title {
   margin: 0 0 16px;
 }
 
-@media (max-width: 768px) {
-  .recipes {
-    grid-template-columns: 1fr;
-  }
-}
+/* ТЕГИ */
 
 .tags {
   display: grid;
@@ -205,6 +207,10 @@ h3 {
   opacity: 1;
 }
 
-.display_none {
-  display: none;
+/* АДАПТИВ */
+
+@media (max-width: 768px) {
+  .recipes {
+    grid-template-columns: 1fr;
+  }
 }
