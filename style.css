@@ -12,7 +12,7 @@ body {
 ul[class],
 ol[class] {
   padding: 0;
-  /* list-style: none; */
+  list-style: none;
 }
 
 body,
@@ -53,6 +53,14 @@ a[class] {
 
 h3 {
   font-size: 20px;
+}
+
+.display_none {
+  display: none;
+}
+
+.selected {
+  background-color: green;
 }
 
 /* СТРАНИЦА
@@ -153,8 +161,48 @@ h3 {
 
 /* КАРТОЧКА РЕЦЕПТА */
 
+.recipe--card {
+  cursor: pointer;
+}
+
 .recipe__title {
   margin: 0 0 16px;
+}
+
+.recipe__section {
+  margin: 0 0 24px;
+  /* padding: 16px;
+  border: 1px solid black; */
+}
+
+.recipe__section--description {
+  font-size: 20px;
+}
+
+.recipe__section > p {
+  font-weight: 600;
+}
+
+/* TODO: надо будет сделать отображение .recipe__ingredient в виде таблички для удобства */
+
+.recipe__ingredient,
+.recipe__step {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+}
+
+.recipe__ingredient::before,
+.recipe__step::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: black;
 }
 
 /* ТЕГИ */

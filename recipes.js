@@ -22,22 +22,22 @@ export const recipes = [
     })
     .get(),
 
-  new Recipe('Рецепт номер 2')
+  new Recipe('Панкейки')
     .setId(ids.id2)
-    .addDescription('Описание рецепта 2')
-    .addIngredient(Ingredient.Potato)
-    .addIngredient(Ingredient.Tomato)
+    .addDescription('Самые базовые панкейки на свете')
+    .addIngredient(Ingredient.Egg)
+    .addIngredient(Ingredient.Milk)
     .addStep({
       position: 1,
-      description: 'Порезать картошку',
+      description: 'Перемешать',
     })
     .addStep({
       position: 2,
-      description: 'Порезать томаты',
+      description: 'Жарить',
     })
     .get(),
 
-  new Recipe('Рецепт номер 3')
+  new Recipe('Рикотники')
     .setId(ids.id3)
     .addDescription('Описание рецепта 3')
     .addIngredient(Ingredient.Tomato)
