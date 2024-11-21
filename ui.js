@@ -155,13 +155,23 @@ export function renderRecipe(recipe) {
   recipeSection.classList.remove('display_none');
 
   const recipeContainer = document.createElement('div');
-  recipeContainer.classList.add('recipe_container');
+  recipeContainer.classList.add('recipe__container');
   recipeSection.appendChild(recipeContainer);
 
-  const recipeIngredients = document.createElement('div');
+  const recipeDescription = document.createElement('div');
+  recipeDescription.classList.add('recipe__description');
+  recipeDescription.innerHTML = 'Описание: ' + recipe.description;
+  recipeContainer.appendChild(recipeDescription);
+
+  const recipeIngredientTitle = document.createElement('p');
+  recipeIngredientTitle.textContent = 'Ингридиенты:';
+  recipeContainer.appendChild(recipeIngredientTitle);
+
+  const recipeIngredients = document.createElement('ul');
   recipeIngredients.classList.add('recipe__ingredients');
+
   for (const ingredient of recipe.ingredients) {
-    const recipeIngredient = document.createElement('span');
+    const recipeIngredient = document.createElement('li');
     recipeIngredient.classList.add('recipe__ingredient');
     recipeIngredient.innerHTML = ingredient;
     recipeIngredients.appendChild(recipeIngredient);
@@ -180,15 +190,17 @@ export function renderRecipe(recipe) {
     recipeContainer.appendChild(recipeSpices);
   }
 
-  const recipeDescription = document.createElement('div');
-  recipeDescription.classList.add('recipe__description');
-  recipeDescription.innerHTML = recipe.description;
-  recipeContainer.appendChild(recipeDescription);
+  
 
-  const recipeSteps = document.createElement('div');
+  const recipeStepsTitle = document.createElement('p');
+  recipeStepsTitle.innerHTML = 'Как готовить:';
+  recipeContainer.appendChild(recipeStepsTitle);
+
+  const recipeSteps = document.createElement('ol');
   recipeSteps.classList.add('recipes__steps');
+
   for (const step of recipe.steps) {
-    const recipeStep = document.createElement('div');
+    const recipeStep = document.createElement('li');
     recipeStep.classList.add('recipe__step');
     recipeStep.innerHTML = step.description;
     recipeSteps.appendChild(recipeStep);
