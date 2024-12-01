@@ -38,6 +38,8 @@ export class Recipe {
 
     this.#ingredients.push(ingredient);
 
+    // TODO: необходимо добавить количество определенного ингридиента для рецепта! 
+
     return this;
   }
 

@@ -28,6 +28,6 @@ function renderMainPage() {
 
 function renderRecipePage() {
   const recipe = getRecipe(pageContext.id);
-  setPageTitle(`Рецепт: ${recipe.name}`);
+  setPageTitle(`${recipe.name}`);
   renderRecipe(recipe);
 }

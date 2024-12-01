@@ -5,7 +5,9 @@ export const Ingredient = {
   SweetPotato: 'батат',
   SourCream: 'сметана',
   Champignon: 'шампиньоны',
-  Spinach: 'шпинат'
+  Spinach: 'шпинат',
+  Milk: 'молоко',
+  Egg: 'яйцо'
 };
 
 // TODO: добавить параметр is_fodmap

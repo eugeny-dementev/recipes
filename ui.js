@@ -99,7 +99,7 @@ export function renderRecipes() {
     }
 
     const recipeContainer = document.createElement('div');
-    recipeContainer.classList.add('recipes__item', 'recipe');
+    recipeContainer.classList.add('recipes__item', 'recipe', 'recipe--card');
     recipeContainer.addEventListener('click', () => {
       location.assign(`${location.href}?recipe=${recipe.id}`);
     });
@@ -159,23 +159,33 @@ export function renderRecipe(recipe) {
   recipeSection.appendChild(recipeContainer);
 
   const recipeDescription = document.createElement('div');
-  recipeDescription.classList.add('recipe__description');
-  recipeDescription.innerHTML = 'Описание: ' + recipe.description;
+  recipeDescription.classList.add('recipe__section', 'recipe__section--description');
+  recipeDescription.innerHTML = recipe.description;
   recipeContainer.appendChild(recipeDescription);
+
+  const recipeIngredients = document.createElement('div');
+  recipeIngredients.classList.add('recipe__section');
 
   const recipeIngredientTitle = document.createElement('p');
   recipeIngredientTitle.textContent = 'Ингридиенты:';
-  recipeContainer.appendChild(recipeIngredientTitle);
+  recipeIngredients.appendChild(recipeIngredientTitle);
 
-  const recipeIngredients = document.createElement('ul');
-  recipeIngredients.classList.add('recipe__ingredients');
+  const recipeIngredientsList = document.createElement('ul');
+  recipeIngredientsList.classList.add('recipe__ingredients');
 
   for (const ingredient of recipe.ingredients) {
+    // TODO: после добавления количества в ингридиент в recipeIngredient должно добавляться два <p> с соответствующими значениями
+    // то есть в итоге в этой функции должен получаться элемент 
+    // <li class='recipe__ingredient'>
+    //   <p>ингридиент</p>
+    //   <p>количество</p>
+    // </li>
     const recipeIngredient = document.createElement('li');
     recipeIngredient.classList.add('recipe__ingredient');
     recipeIngredient.innerHTML = ingredient;
-    recipeIngredients.appendChild(recipeIngredient);
+    recipeIngredientsList.appendChild(recipeIngredient);
   }
+  recipeIngredients.appendChild(recipeIngredientsList);
   recipeContainer.appendChild(recipeIngredients);
 
   if (recipe.spices.length > 0) {
@@ -190,20 +200,22 @@ export function renderRecipe(recipe) {
     recipeContainer.appendChild(recipeSpices);
   }
 
-  
+  const recipeSteps = document.createElement('div');
+  recipeSteps.classList.add('recipe__section');
 
   const recipeStepsTitle = document.createElement('p');
   recipeStepsTitle.innerHTML = 'Как готовить:';
-  recipeContainer.appendChild(recipeStepsTitle);
+  recipeSteps.appendChild(recipeStepsTitle);
 
-  const recipeSteps = document.createElement('ol');
-  recipeSteps.classList.add('recipes__steps');
+  const recipeStepsList = document.createElement('ol');
+  recipeStepsList.classList.add('recipe__steps');
 
   for (const step of recipe.steps) {
     const recipeStep = document.createElement('li');
     recipeStep.classList.add('recipe__step');
     recipeStep.innerHTML = step.description;
-    recipeSteps.appendChild(recipeStep);
+    recipeStepsList.appendChild(recipeStep);
   }
+  recipeSteps.appendChild(recipeStepsList);
   recipeContainer.appendChild(recipeSteps);
 }
